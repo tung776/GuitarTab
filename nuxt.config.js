@@ -44,6 +44,8 @@ module.exports = {
     // Doc: https://bootstrap-vue.js.org/docs/
     'bootstrap-vue/nuxt'
   ],
+
+  serverMiddleware: ['~/server/api/index.js'],
   /*
   ** Axios module configuration
   */
