@@ -1,17 +1,17 @@
-const express = require('express')
-const app = express()
-app.get('/', (req, res, next) => {
-  res.send('API root')
-})
+const express = require("express");
+const app = express();
+app.get("/", (req, res, next) => {
+  res.send("API root");
+});
 
-app.get('/status', (req, res) => {
-  //console.log(req)
+app.post("/register", (req, res) => {
+  console.log(req.body.email);
   res.send({
-    message: "go api status"
-  })
-})
+    message: `Xin chao ban ${req.body.email}`
+  });
+});
 // export the server middleware
 module.exports = {
-  path: '/api',
+  path: "/api",
   handler: app
-}
+};
