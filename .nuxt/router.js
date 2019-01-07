@@ -2,8 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
-const _023ec61a = () => interopDefault(import('..\\pages\\register.vue' /* webpackChunkName: "pages_register" */))
-const _38b5e86b = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
+const _0ae486b3 = () => interopDefault(import('..\\pages\\register.vue' /* webpackChunkName: "pages_register" */))
+const _0926d31c = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
 
 Vue.use(Router)
 
@@ -64,11 +64,11 @@ export function createRouter() {
 
     routes: [{
       path: "/register",
-      component: _023ec61a,
+      component: _0ae486b3,
       name: "register"
     }, {
       path: "/",
-      component: _38b5e86b,
+      component: _0926d31c,
       name: "index"
     }],
 

@@ -4,13 +4,23 @@ const configDb = require("../config/configDb");
 const Sequelize = require("sequelize");
 
 const db = {};
-const host = process.env.HOST || "127.0.0.1";
-const port = process.env.PORT || 3000;
+
 const sequelize = new Sequelize(
   configDb.database,
   configDb.user,
   configDb.password,
-  configDb.options
+  {
+    host: "localhost",
+    dialect: "mysql",
+    operatorsAliases: false,
+
+    pool: {
+      max: 5,
+      min: 0,
+      acquire: 30000,
+      idle: 10000
+    }
+  }
 );
 
 sequelize
@@ -21,16 +31,14 @@ sequelize
   .catch(err => {
     console.error("Unable to connect to the database:", err);
   });
-
-fs.readdirSync(__dirname)
-  .filter(file => {
-    file !== "index.js";
-  })
-  .forEach(file => {
+fs.readdirSync(__dirname).forEach(file => {
+  if (file !== "index.js") {
     const model = sequelize.import(path.join(__dirname, file));
-    db[model.name] = model;
-  });
 
+    const name = file.replace(".js", "");
+    db[model.name] = model;
+  }
+});
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 

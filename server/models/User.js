@@ -1,10 +1,10 @@
-export default (sequelize, DataTypes) => {
-    sequelize.define('User', {
-        email: {
-            type: DataTypes.STRING,
-            unique: true
-        },
-        password: DataTypes.STRING
-    })
-
-}
+module.exports = (sequelize, DataTypes) => {
+  return sequelize.define("user", {
+    email: {
+      type: DataTypes.STRING
+    },
+    password: {
+      type: DataTypes.STRING
+    }
+  });
+};
