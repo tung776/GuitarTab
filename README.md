@@ -1,6 +1,6 @@
 # GuitarTab
 
-> nuxt and express javascript learning
+> My fine Nuxt.js project
 
 ## Build Setup
 

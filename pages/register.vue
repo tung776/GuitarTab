@@ -3,12 +3,14 @@
     <h2>Register</h2>
     <br>
 
-    <form @submit.prevent="submit">
-      <input v-model="form.email" type="email" name="email" id="email">
-      <input v-model="form.password" type="password" name="password" id="password">
-      <br>
-      <button type="submit">Đăng ký</button>
-    </form>
+    <input v-model="form.email" type="email" name="email" id="email">
+    <input v-model="form.password" type="password" name="password" id="password">
+    <br>
+    <div v-html="error" class="error">
+      <v-alert :value="true" type="error">{{error}}</v-alert>
+    </div>
+    <br>
+    <button @click="submit">Đăng ký</button>
   </div>
 </template>
 
@@ -21,14 +23,19 @@ export default {
       form: {
         email: "",
         password: ""
-      }
+      },
+      error: null
     };
   },
   methods: {
     async submit() {
       console.log(this.form);
-      const respon = await authenService.register("/register", this.form);
-      console.log("respon = ", respon);
+      try {
+        const respon = await authenService.register(this.form);
+      } catch (err) {
+        this.error = err.response.data.error;
+      }
+      // console.log("respon = ", respon);
     }
   }
 };

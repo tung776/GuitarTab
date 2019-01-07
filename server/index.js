@@ -4,7 +4,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 //console logger cho cả nodejs và trình duyệt
 const consola = require("consola");
-const morgan = require("morgan");
+// const morgan = require("morgan");
 const { Nuxt, Builder } = require("nuxt");
 const { sequelize } = require("./models");
 const app = express();
@@ -18,7 +18,7 @@ const port = process.env.PORT || 3000;
 */
 app.use(cors());
 app.use(bodyParser.json());
-app.use(morgan("combined"));
+// app.use(morgan("combined"));
 app.set("port", port);
 
 // Import and Set Nuxt.js options
