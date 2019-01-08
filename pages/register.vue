@@ -1,17 +1,35 @@
 <template>
-  <div>
-    <h2>Register</h2>
-    <br>
-
-    <input v-model="form.email" type="email" name="email" id="email">
-    <input v-model="form.password" type="password" name="password" id="password">
-    <br>
-    <div v-html="error" class="error">
-      <v-alert :value="true" type="error">{{error}}</v-alert>
-    </div>
-    <br>
-    <button @click="submit">Đăng ký</button>
-  </div>
+  <v-layout justify-center>
+    <v-flex xs12 sm10 md8 lg6>
+      <v-card ref="form">
+        <v-card-text>
+          <v-text-field
+            ref="email"
+            v-model="form.email"
+            label="email"
+            placeholder="example@soncattuong.com"
+            required
+          ></v-text-field>
+          <v-text-field
+            ref="password"
+            v-model="form.password"
+            label="mật khẩu"
+            placeholder="mật khẩu"
+            counter="32"
+            required
+          ></v-text-field>
+        </v-card-text>
+        <v-divider class="mt-5"></v-divider>
+        <v-alert :value="true" type="error" v-if="error">
+          <div v-html="error">{{error}}</div>
+        </v-alert>
+        <v-divider class="mt-5"></v-divider>
+        <v-card-actions>
+          <v-btn color="primary" dark @click="submit">Submit</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
@@ -40,3 +58,14 @@ export default {
   }
 };
 </script>
+<style>
+.v-text-field input {
+  border-bottom: 1px solid darkcyan;
+}
+.v-text-field .v-label {
+  color: darkcyan;
+}
+.v-label--active .v-input--is-focused {
+  border-bottom: 1px solid 036363;
+}
+</style>
