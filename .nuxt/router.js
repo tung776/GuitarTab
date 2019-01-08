@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import { interopDefault } from './utils'
 
 const _7f45ad8e = () => interopDefault(import('..\\pages\\inspire.vue' /* webpackChunkName: "pages_inspire" */))
+const _091f4c08 = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages_login" */))
 const _4f61efd4 = () => interopDefault(import('..\\pages\\register.vue' /* webpackChunkName: "pages_register" */))
 const _3f77a8f1 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
 
@@ -67,6 +68,10 @@ export function createRouter() {
       path: "/inspire",
       component: _7f45ad8e,
       name: "inspire"
+    }, {
+      path: "/login",
+      component: _091f4c08,
+      name: "login"
     }, {
       path: "/register",
       component: _4f61efd4,

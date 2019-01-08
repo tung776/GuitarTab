@@ -3,7 +3,7 @@
     <v-flex xs12 sm10 md8 lg6>
       <v-card>
         <v-toolbar ref="form">
-          <v-toolbar-title>Đăng Ký</v-toolbar-title>
+          <v-toolbar-title>Đăng Nhập</v-toolbar-title>
         </v-toolbar>
         <v-card-text>
           <v-text-field
@@ -50,7 +50,8 @@ export default {
     async submit() {
       console.log(this.form);
       try {
-        const respon = await authenService.register(this.form);
+        const respon = await authenService.login(this.form);
+        this.$router.push("/");
       } catch (err) {
         this.error = err.response.data.error;
       }

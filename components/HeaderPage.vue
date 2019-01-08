@@ -15,9 +15,14 @@
     <v-toolbar :clipped-left="clipped" fixed app>
       <v-toolbar-side-icon @click="drawer = !drawer"/>
 
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-        <v-icon>menu</v-icon>
-      </v-btn>
+      <div left>
+        <v-btn flat dark @click="navigateTo({ name: 'index'})">Trang Chủ</v-btn>
+        <v-btn flat dark @click="navigateTo({ name: 'register'})">Đăng Ký</v-btn>
+        <v-btn flat dark @click="navigateTo({ name: 'login'})">Đăng Nhập</v-btn>
+        <v-btn icon @click.stop="rightDrawer = !rightDrawer">
+          <v-icon>menu</v-icon>
+        </v-btn>
+      </div>
     </v-toolbar>
 
     <v-navigation-drawer :right="right" v-model="rightDrawer" temporary fixed>
@@ -48,6 +53,11 @@ export default {
       rightDrawer: false,
       title: "Guitar Tab"
     };
+  },
+  methods: {
+    navigateTo(router) {
+      this.$router.push(router);
+    }
   }
 };
 </script>

@@ -6,23 +6,17 @@
         <nuxt/>
       </v-container>
     </v-content>
-
-    <v-footer :fixed="fixed" app>
-      <span>&copy; 2017</span>
-    </v-footer>
+    <footer-page/>
   </v-app>
 </template>
 
 <script>
 import HeaderPage from "~/components/HeaderPage.vue";
+import FooterPage from "~/components/FooterPage.vue";
 export default {
   components: {
-    HeaderPage
-  },
-  data() {
-    return {
-      fixed: false
-    };
+    HeaderPage,
+    FooterPage
   }
 };
 </script>
