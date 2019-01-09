@@ -2,10 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
-const _7f45ad8e = () => interopDefault(import('..\\pages\\inspire.vue' /* webpackChunkName: "pages_inspire" */))
-const _091f4c08 = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages_login" */))
-const _4f61efd4 = () => interopDefault(import('..\\pages\\register.vue' /* webpackChunkName: "pages_register" */))
-const _3f77a8f1 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
+const _63097233 = () => interopDefault(import('..\\pages\\inspire.vue' /* webpackChunkName: "pages_inspire" */))
+const _025d8b82 = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages_login" */))
+const _023ec61a = () => interopDefault(import('..\\pages\\register.vue' /* webpackChunkName: "pages_register" */))
+const _38b5e86b = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
 
 Vue.use(Router)
 
@@ -66,19 +66,19 @@ export function createRouter() {
 
     routes: [{
       path: "/inspire",
-      component: _7f45ad8e,
+      component: _63097233,
       name: "inspire"
     }, {
       path: "/login",
-      component: _091f4c08,
+      component: _025d8b82,
       name: "login"
     }, {
       path: "/register",
-      component: _4f61efd4,
+      component: _023ec61a,
       name: "register"
     }, {
       path: "/",
-      component: _3f77a8f1,
+      component: _38b5e86b,
       name: "index"
     }],
 
