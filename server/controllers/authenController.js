@@ -1,13 +1,20 @@
 const jwt = require('jsonwebtoken');
-const config = require('../config/configDb')
+const config = require('../config/config')
 const {
-    user
+    User
 } = require("../models");
+
+function jwtSignUser(user) {
+    const ONE_WEEK = 60 * 60 * 24 * 7;
+    return jwt.sign(user, config.authen.jwtSecret, {
+        expiresIn: ONE_WEEK
+    })
+}
 
 module.exports = {
     async register(req, res) {
         try {
-            const _user = await user.create(req.body);
+            const _user = await User.create(req.body);
             res.send(_user.toJSON());
             // res.send(`hello ${req.body.email}`);
         } catch (err) {
@@ -26,7 +33,7 @@ module.exports = {
                 email,
                 password
             } = req.body
-            const _user = await user.findOne({
+            const _user = await User.findOne({
                 where: {
                     email: email
                 }
@@ -42,7 +49,11 @@ module.exports = {
                     error: "sai mật khẩu"
                 })
             }
-            res.send(_user.toJSON());
+            const userToken = _user.toJSON();
+            res.send({
+                user: userToken,
+                token: jwtSignUser(userToken)
+            });
             // res.send(`hello ${req.body.email}`);
         } catch (err) {
             console.log("đã có lỗi: ", err);
