@@ -31,9 +31,9 @@ module.exports = (sequelize, DataTypes) => {
         }
     });
 
-    UserModel.prototype.comparePassword = (password, user) => {
-        // console.log(`user.password = ${user.password}; password = ${password}`)
-        return bcrypt.compareAsync(password, user.password)
+    UserModel.prototype.comparePassword = function(password) {
+        console.log(`this.password = ${this.password}; password = ${password}`)
+        return bcrypt.compareAsync(password, this.password)
     }
     return UserModel;
 };

@@ -44,7 +44,7 @@ module.exports = {
                     error: "Người dùng chưa đăng ký"
                 })
             }
-            if (!_user.comparePassword(password, _user)) {
+            if (!_user.comparePassword(password)) {
                 return res.status(403).send({
                     error: "sai mật khẩu"
                 })

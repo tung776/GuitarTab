@@ -26,7 +26,7 @@
           <div v-html="error">{{error}}</div>
         </v-alert>
         <v-card-actions>
-          <v-btn color="primary" dark @click="submit">Submit</v-btn>
+          <v-btn color="primary" dark @click="login">Đăng Nhập</v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
@@ -47,12 +47,16 @@ export default {
     };
   },
   methods: {
-    async submit() {
-      console.log(this.form);
+    async login() {
+      // console.log(this.form);
       try {
         const respon = await authenService.login(this.form);
+
+        console.log(`respon.token`, respon.data.token);
+        this.$store.dispatch("setToken", respon.data.token);
         this.$router.push("/");
       } catch (err) {
+        console.log(err);
         this.error = err.response.data.error;
       }
       // console.log("respon = ", respon);
