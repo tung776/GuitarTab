@@ -13,9 +13,13 @@
 
 <script>
 import Panel from "@/components/Panel";
+import songService from "@/services/songService";
 export default {
   components: {
     Panel
+  },
+  async mounted() {
+    const songs = await songService.index();
   }
 };
 </script>
