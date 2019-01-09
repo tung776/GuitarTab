@@ -6,8 +6,7 @@
           <v-toolbar-title>{{title}}</v-toolbar-title>
         </v-toolbar>
         <div class="pl-4 pr-4 pt-2 pb-2">
-          <slot name="content">nothing...</slot>
-          <slot name="footer">nothing...</slot>
+          <slot>nothing...</slot>
         </div>
       </v-card>
     </v-flex>
@@ -16,10 +15,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      title: "Bản nhạc"
-    };
-  }
+  props: ["title"]
 };
 </script>
