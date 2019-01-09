@@ -21,6 +21,10 @@
         <v-btn flat dark @click="navigateTo({ name: 'register'})">Đăng Ký</v-btn>
         <v-btn flat dark @click="navigateTo({ name: 'login'})">Đăng Nhập</v-btn>
       </div>
+      <div v-if="$store.state.authen.isLogged">
+        <v-btn flat dark @click="navigateTo({ name: 'songs'})">Bản Nhạc</v-btn>
+        <v-btn flat dark @click="logout">Thoát</v-btn>
+      </div>
       <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon>menu</v-icon>
       </v-btn>
@@ -58,6 +62,13 @@ export default {
   methods: {
     navigateTo(router) {
       this.$router.push(router);
+    },
+    logout() {
+      this.$store.dispatch("authen/setUser", null);
+      this.$store.dispatch("authen/setToken", null);
+      this.$router.push({
+        name: "index"
+      });
     }
   }
 };
