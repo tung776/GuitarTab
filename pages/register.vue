@@ -51,6 +51,11 @@ export default {
       console.log(this.form);
       try {
         const respon = await authenService.register(this.form);
+
+        console.log(`respon.token`, respon.data.token);
+        this.$store.dispatch("authen/setToken", respon.data.token);
+        this.$store.dispatch("authen/setUser", respon.data.user);
+        this.$router.push("/");
       } catch (err) {
         this.error = err.response.data.error;
       }

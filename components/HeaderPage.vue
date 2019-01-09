@@ -15,14 +15,15 @@
     <v-toolbar :clipped-left="clipped" fixed app>
       <v-toolbar-side-icon @click="drawer = !drawer"/>
 
-      <div left>
-        <v-btn flat dark @click="navigateTo({ name: 'index'})">Trang Chủ</v-btn>
+      <v-btn flat dark @click="navigateTo({ name: 'index'})">Trang Chủ</v-btn>
+      <!-- <p>{{ $store.state.authen.token }}</p> -->
+      <div v-if="!$store.state.authen.isLogged">
         <v-btn flat dark @click="navigateTo({ name: 'register'})">Đăng Ký</v-btn>
         <v-btn flat dark @click="navigateTo({ name: 'login'})">Đăng Nhập</v-btn>
-        <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-          <v-icon>menu</v-icon>
-        </v-btn>
       </div>
+      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
+        <v-icon>menu</v-icon>
+      </v-btn>
     </v-toolbar>
 
     <v-navigation-drawer :right="right" v-model="rightDrawer" temporary fixed>
