@@ -4,9 +4,9 @@ const {
     User
 } = require("../models");
 
-function jwtSignUser(user) {
+function jwtSignUser(_user) {
     const ONE_WEEK = 60 * 60 * 24 * 7;
-    return jwt.sign(user, config.authen.jwtSecret, {
+    return jwt.sign(_user, config.authen.jwtSecret, {
         expiresIn: ONE_WEEK
     })
 }
@@ -44,7 +44,7 @@ module.exports = {
                     error: "Người dùng chưa đăng ký"
                 })
             }
-            if (!_user.comparePassword(password)) {
+            if (!_user.comparePassword(password, _user)) {
                 return res.status(403).send({
                     error: "sai mật khẩu"
                 })

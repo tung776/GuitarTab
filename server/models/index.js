@@ -33,8 +33,7 @@ sequelize
 fs.readdirSync(__dirname).forEach(file => {
     if (file !== "index.js") {
         const model = sequelize.import(path.join(__dirname, file));
-
-        const name = file.replace(".js", "");
+        console.log("model.name = ", model.name);
         db[model.name] = model;
     }
 });
