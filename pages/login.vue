@@ -1,30 +1,32 @@
 <template>
   <v-layout justify-center>
-    <panel title="Đăng Nhập">
-      <v-card-text>
-        <v-text-field
-          ref="email"
-          v-model="form.email"
-          label="email"
-          placeholder="example@soncattuong.com"
-          required
-        ></v-text-field>
-        <v-text-field
-          ref="password"
-          v-model="form.password"
-          label="mật khẩu"
-          placeholder="mật khẩu"
-          counter="32"
-          required
-        ></v-text-field>
-      </v-card-text>
-      <v-alert :value="true" type="error" v-if="error">
-        <div v-html="error">{{error}}</div>
-      </v-alert>
-      <v-card-actions>
-        <v-btn color="primary" dark @click="login">Đăng Nhập</v-btn>
-      </v-card-actions>
-    </panel>
+    <v-flex xs12 sm10 md8 lg6>
+      <panel title="Đăng Nhập">
+        <v-card-text>
+          <v-text-field
+            ref="email"
+            v-model="form.email"
+            label="email"
+            placeholder="example@soncattuong.com"
+            required
+          ></v-text-field>
+          <v-text-field
+            ref="password"
+            v-model="form.password"
+            label="mật khẩu"
+            placeholder="mật khẩu"
+            counter="32"
+            required
+          ></v-text-field>
+        </v-card-text>
+        <v-alert :value="true" type="error" v-if="error">
+          <div v-html="error">{{error}}</div>
+        </v-alert>
+        <v-card-actions>
+          <v-btn color="primary" dark @click="login">Đăng Nhập</v-btn>
+        </v-card-actions>
+      </panel>
+    </v-flex>
   </v-layout>
 </template>
 
