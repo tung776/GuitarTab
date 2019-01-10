@@ -6,38 +6,38 @@
           <v-flex pt-2 pb-2 pr-4 pl-4>
             <v-text-field
               ref="title"
-              v-model="song.email"
+              v-model="song.title"
               label="Tên Bản Nhạc"
               placeholder="Tên Bản Nhạc"
-              required
+              :rules="[rules.required]"
             ></v-text-field>
             <v-text-field
               ref="artist"
               v-model="song.artist"
               label="Nghệ Sĩ"
               placeholder="Tên Nghệ Sĩ"
-              required
+              :rules="[rules.required]"
             ></v-text-field>
             <v-text-field
               ref="genre"
               v-model="song.genre"
               label="Thể Loại"
               placeholder="Thể Loại"
-              required
+              :rules="[rules.required]"
             ></v-text-field>
             <v-text-field
               ref="album"
               v-model="song.album"
               label="album"
               placeholder="album"
-              required
+              :rules="[rules.required]"
             ></v-text-field>
             <v-text-field
               ref="albumImageUrl"
               v-model="song.albumImageUrl"
               label="Ảnh Album"
               placeholder="Url ảnh Album"
-              required
+              :rules="[rules.required]"
             ></v-text-field>
             <v-text-field ref="slug" v-model="song.slug" label="URL" placeholder="URL" required></v-text-field>
             <v-text-field
@@ -45,9 +45,8 @@
               v-model="song.youtubeUrl"
               label="youtubeUrl"
               placeholder="youtubeUrl"
-              required
+              :rules="[rules.required]"
             ></v-text-field>
-            <v-text-field ref="slug" v-model="song.slug" label="URL" placeholder="URL" required></v-text-field>
           </v-flex>
         </panel>
       </v-flex>
@@ -61,6 +60,7 @@
               v-model="song.tab"
               label="Hợp Âm"
               placeholder="Hợp Âm"
+              :rules="[rules.required]"
             ></v-textarea>
             <v-textarea
               ref="lyrics"
@@ -69,11 +69,15 @@
               v-model="song.lyrics"
               label="Lời Bản Nhạc"
               placeholder="lyrics"
+              :rules="[rules.required]"
             ></v-textarea>
           </v-flex>
         </panel>
       </v-flex>
     </v-layout>
+    <v-alert :value="true" type="error" v-if="error">
+      <div v-html="error">{{error}}</div>
+    </v-alert>
     <v-card-actions>
       <v-btn color="primary" dark @click="cancel">Hủy Bỏ</v-btn>
       <v-btn color="primary" dark @click="submit">Tạo Bản Nhạc</v-btn>
@@ -88,16 +92,20 @@ export default {
   data() {
     return {
       song: {
-        title: "",
-        artist: "",
-        genre: "",
-        album: "",
-        albumImageUrl: "",
-        slug: "",
-        youtubeUrl: "",
-        tab: "",
-        lyrics: ""
-      }
+        title: null,
+        artist: null,
+        genre: null,
+        album: null,
+        albumImageUrl: null,
+        slug: null,
+        youtubeUrl: null,
+        tab: null,
+        lyrics: null
+      },
+      rules: {
+        required: value => !!value || "required"
+      },
+      error: null
     };
   },
   components: {
@@ -107,9 +115,18 @@ export default {
   methods: {
     async submit() {
       try {
+        this.error = null;
+        const areAllFieldFilled = Object.keys(this.song).forEach(key => {
+          if (this.song[key] == null || this.song[key] == "") {
+            this.error = true;
+          }
+        });
+        if (this.error) {
+          this.error = "Bạn hãy điền các dữ liệu cần thiết";
+          return;
+        }
         const result = await songService.createSong(this.song);
-        // console.log("songs= ", songs.data);
-        this.songs = result.data;
+        this.$router.push({ name: "songs" });
       } catch (err) {
         console.log("eror: ", err);
       }
