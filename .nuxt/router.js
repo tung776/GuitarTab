@@ -2,11 +2,11 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
-const _63097233 = () => interopDefault(import('..\\pages\\inspire.vue' /* webpackChunkName: "pages_inspire" */))
-const _025d8b82 = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages_login" */))
-const _023ec61a = () => interopDefault(import('..\\pages\\register.vue' /* webpackChunkName: "pages_register" */))
-const _7f64f797 = () => interopDefault(import('..\\pages\\songs.vue' /* webpackChunkName: "pages_songs" */))
-const _38b5e86b = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
+const _7f45ad8e = () => interopDefault(import('..\\pages\\inspire.vue' /* webpackChunkName: "pages_inspire" */))
+const _091f4c08 = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages_login" */))
+const _4f61efd4 = () => interopDefault(import('..\\pages\\register.vue' /* webpackChunkName: "pages_register" */))
+const _f3b28fc6 = () => interopDefault(import('..\\pages\\songs.vue' /* webpackChunkName: "pages_songs" */))
+const _3f77a8f1 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
 
 Vue.use(Router)
 
@@ -67,23 +67,23 @@ export function createRouter() {
 
     routes: [{
       path: "/inspire",
-      component: _63097233,
+      component: _7f45ad8e,
       name: "inspire"
     }, {
       path: "/login",
-      component: _025d8b82,
+      component: _091f4c08,
       name: "login"
     }, {
       path: "/register",
-      component: _023ec61a,
+      component: _4f61efd4,
       name: "register"
     }, {
       path: "/songs",
-      component: _7f64f797,
+      component: _f3b28fc6,
       name: "songs"
     }, {
       path: "/",
-      component: _38b5e86b,
+      component: _3f77a8f1,
       name: "index"
     }],
 
