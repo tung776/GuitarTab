@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
+const _267257bc = () => interopDefault(import('..\\pages\\createSong.vue' /* webpackChunkName: "pages_createSong" */))
 const _7f45ad8e = () => interopDefault(import('..\\pages\\inspire.vue' /* webpackChunkName: "pages_inspire" */))
 const _091f4c08 = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages_login" */))
 const _4f61efd4 = () => interopDefault(import('..\\pages\\register.vue' /* webpackChunkName: "pages_register" */))
@@ -66,6 +67,10 @@ export function createRouter() {
     scrollBehavior,
 
     routes: [{
+      path: "/createSong",
+      component: _267257bc,
+      name: "createSong"
+    }, {
       path: "/inspire",
       component: _7f45ad8e,
       name: "inspire"
