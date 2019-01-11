@@ -6,5 +6,8 @@ export default {
   },
   createSong(song) {
     return api().post("/createSong", song);
+  },
+  loadSong(id) {
+    return api().get(`/song/${id}`);
   }
 };

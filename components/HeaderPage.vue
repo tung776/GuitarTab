@@ -16,13 +16,13 @@
       <v-toolbar-side-icon @click="drawer = !drawer"/>
 
       <v-btn flat dark @click="navigateTo({ name: 'index'})">Trang Chủ</v-btn>
+      <nuxt-link class="v-btn v-btn--flat theme--dark" to="/songs">Bản Nhạc</nuxt-link>
       <!-- <p>{{ $store.state.authen.token }}</p> -->
       <div v-if="!$store.state.authen.isLogged">
         <v-btn flat dark @click="navigateTo({ name: 'register'})">Đăng Ký</v-btn>
         <v-btn flat dark @click="navigateTo({ name: 'login'})">Đăng Nhập</v-btn>
       </div>
       <div v-if="$store.state.authen.isLogged">
-        <v-btn flat dark @click="navigateTo({ name: 'songs'})">Bản Nhạc</v-btn>
         <v-btn flat dark @click="logout">Thoát</v-btn>
       </div>
       <v-btn icon @click.stop="rightDrawer = !rightDrawer">

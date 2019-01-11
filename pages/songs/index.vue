@@ -11,7 +11,7 @@
               <h4>{{song.album}}</h4>
               <h4>{{song.genre}}</h4>
               <v-card-actions>
-                <v-btn color="primary" dark @click="backTolist">Các Bản Nhạc</v-btn>
+                <v-btn color="primary" dark @click="detail(song.id)">Chi Tiết</v-btn>
               </v-card-actions>
             </v-flex>
             <v-flex xs8 md8 pt-4 pb-4 pl-4 pr-4 center>
@@ -38,19 +38,16 @@ export default {
     Panel
   },
   async mounted() {
-    console.log("this.$router.params('id') = ", this.$url);
-    // const songs = await songService.song();
-    // console.log("songs= ", songs.data);
-    // this.songs = songs.data;
+    const songs = await songService.index();
+    console.log("songs= ", songs.data);
+    this.songs = songs.data;
   },
   methods: {
     addClick() {
       this.$router.push({ name: "createSong" });
     },
-    backTolist(id) {
-      this.$router.push({
-        name: "songs"
-      });
+    detail(id) {
+      this.$router.push(`/songs/${id}`);
     }
   }
 };
