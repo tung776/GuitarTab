@@ -14,6 +14,11 @@
 
             <v-card-actions pt-4>
               <v-btn color="primary" dark @click="backTolist">Các Bản Nhạc</v-btn>
+              <nuxt-link
+                :to="{name:'songs-id-edit', params:{id:song.id}}"
+                class="v-btn theme--dark primary"
+              >Sửa Thông Tin</nuxt-link>
+              <!-- <v-btn color="primary" dark @click="editSong">Sửa Thông Tin</v-btn> -->
             </v-card-actions>
           </v-flex>
           <v-flex xs8 pt-4 pb-4 pl-4 pr-4>
@@ -64,11 +69,19 @@ export default {
   },
   methods: {
     addClick() {
-      this.$router.push("/createSong");
+      this.$router.push("/song/create");
     },
     backTolist(id) {
       this.$router.push({
         name: "songs"
+      });
+    },
+    editSong(id) {
+      this.$router.push({
+        name: "songs-id-edit",
+        params: {
+          id: id
+        }
       });
     }
   }

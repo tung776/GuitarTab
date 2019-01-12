@@ -10,6 +10,7 @@ router.post("/login", authenPolicy.login, authenController.login);
 
 router.get("/songs", songController.songs);
 router.get("/song/:id", songController.song);
+router.put("/song/:id/edit", songController.editSong);
 router.post("/createSong", songPolicy.createSong, songController.createSong);
 
 module.exports = router;
