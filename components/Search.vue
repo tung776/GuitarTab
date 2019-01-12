@@ -40,6 +40,30 @@ export default {
       // console.log("respon = ", respon);
     }
   },
+
+  watch: {
+    search(value) {
+      console.log(`value = ${value}`);
+      const route = {
+        name: "songs"
+      };
+
+      if (this.search !== "") {
+        route.query = {
+          search: this.search
+        };
+      }
+
+      this.$router.push(route);
+    },
+    "$route.query.search": {
+      immediate: true,
+      handler(value) {
+        // console.log("value changed = ", value);
+        this.search = value;
+      }
+    }
+  },
   components: {
     Panel
   }

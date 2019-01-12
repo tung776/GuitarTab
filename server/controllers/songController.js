@@ -74,7 +74,24 @@ module.exports = {
     },
     async songs(req, res) {
         try {
-            const _songs = await Song.findAll();
+            const searchQuery = req.query.search
+            console.log(`req.query.search = ${searchQuery}`)
+            let _songs = null;
+            if (req.query.search) {
+                _songs = await Song.findAll({
+                    where: {
+                        $or: [
+                            'title', 'artist', 'album', 'genre', 'tab'
+                        ].map(key => ({
+                            [key]: {
+                                $like: `%${searchQuery}%`
+                            }
+                        }))
+                    }
+                });
+            } else {
+                _songs = await Song.findAll();
+            }
             res.status(200).send(_songs);
         } catch (err) {
             console.log("đã có lỗi: ", err);

@@ -46,11 +46,11 @@ export default {
     Panel,
     Search
   },
-  async mounted() {
-    const songs = await songService.index();
-    console.log("songs= ", songs.data);
-    this.songs = songs.data;
-  },
+  // async mounted() {
+  //   const songs = await songService.index();
+  //   console.log("songs= ", songs.data);
+  //   this.songs = songs.data;
+  // },
   methods: {
     addClick() {
       this.$router.push({ name: "song-create" });
@@ -62,6 +62,16 @@ export default {
           id: id
         }
       });
+    }
+  },
+  watch: {
+    "$route.query.search": {
+      immediate: true,
+      async handler(value) {
+        const songs = await songService.index(value);
+        // console.log("songs= ", songs.data);
+        this.songs = songs.data;
+      }
     }
   }
 };
