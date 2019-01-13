@@ -31,7 +31,6 @@
 </template>
 
 <script>
-import authenService from "@/services/authenService";
 import Panel from "@/components/Panel";
 
 export default {
@@ -47,18 +46,13 @@ export default {
   },
   methods: {
     async submit() {
-      console.log(this.form);
       try {
         const respon = await authenService.register(this.form);
 
-        console.log(`respon.token`, respon.data.token);
-        // this.$store.dispatch("auth/setToken", respon.data.token);
-        // this.$store.dispatch("auth/setUser", respon.data.user);
         this.$router.push("/");
       } catch (err) {
         this.error = err.response.data.error;
       }
-      // console.log("respon = ", respon);
     }
   },
   components: {

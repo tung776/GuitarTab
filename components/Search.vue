@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import authenService from "@/services/authenService";
 import Panel from "@/components/Panel";
 
 export default {

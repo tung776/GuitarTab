@@ -2,23 +2,6 @@ const Joi = require("joi");
 
 module.exports = {
   createSong(req, res, next) {
-    // const schema = {
-    //     title: Joi.string(),
-    //     artist: Joi.string(),
-    //     genre: Joi.string(),
-    //     album: Joi.string(),
-    //     albumImageUrl: Joi.string(),
-    //     slug: Joi.string(),
-    //     youtubeUrl: Joi.string(),
-    //     lyrics: Joi.string(),
-    //     tab: Joi.string()
-    // };
-
-    // const {
-    //     error,
-    //     value
-    // } = Joi.validate(req.body, schema);
-
     const error = false;
     if (error) {
       switch (error.details[0].context.key) {

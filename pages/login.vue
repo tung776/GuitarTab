@@ -31,7 +31,6 @@
 </template>
 
 <script>
-import authenService from "@/services/authenService";
 import Panel from "@/components/Panel";
 
 export default {
@@ -47,21 +46,14 @@ export default {
   },
   methods: {
     async login() {
-      // console.log(this.form);
       try {
-        // const respon = await authenService.login(this.form);
-        console.log("this.form = ", this.form);
         const { email, password } = this.form;
         const respon = await this.$auth.loginWith("local", { data: this.form });
-        console.log("respon = ", respon);
-        // this.$store.dispatch("auth/setToken", respon.data.token);
-        // this.$store.dispatch("auth/setUser", respon.data.user);
         this.$router.push("/");
       } catch (err) {
         console.log(err);
         this.error = err.response.data.error;
       }
-      // console.log("respon = ", respon);
     }
   },
   components: {

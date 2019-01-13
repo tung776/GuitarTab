@@ -4,7 +4,6 @@ const Op = Sequelize.Op;
 module.exports = {
   async createSong(req, res) {
     try {
-      // console.log('req.body =', req.body)
       const _song = ({
         title,
         artist,
@@ -17,7 +16,6 @@ module.exports = {
         tab
       } = req.body);
       const result = await Song.create(_song);
-      // console.log('result = ', result)
       res.status(200).send(result.toJSON());
     } catch (err) {
       console.log("đã có lỗi: ", err);
@@ -31,7 +29,6 @@ module.exports = {
   },
   async editSong(req, res) {
     try {
-      // console.log('req.body =', req.body)
       const _song = ({
         title,
         artist,
@@ -43,8 +40,6 @@ module.exports = {
         lyrics,
         tab
       } = req.body);
-      // console.log('req.body = ', req.body);
-      // console.log('req.params = ', req.params);
 
       const result = await Song.update(_song, {
         where: {
@@ -57,7 +52,6 @@ module.exports = {
           success: false
         });
       }
-      console.log("result = ", result);
       res.status(200).send({
         success: true
       });
@@ -74,7 +68,6 @@ module.exports = {
   async songs(req, res) {
     try {
       const searchQuery = req.query.search;
-      console.log(`req.query.search = ${searchQuery}`);
       let _songs = null;
       if (req.query.search) {
         _songs = await Song.findAll({
@@ -102,7 +95,6 @@ module.exports = {
   },
   async song(req, res) {
     try {
-      console.log("req.params = ", req.params);
       const _songs = await Song.findOne({
         where: {
           id: req.params.id

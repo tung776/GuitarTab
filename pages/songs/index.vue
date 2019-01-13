@@ -40,7 +40,6 @@
 
 <script>
 import Panel from "@/components/Panel";
-import songService from "@/services/songService";
 import Search from "@/components/Search";
 export default {
   data() {
@@ -52,11 +51,6 @@ export default {
     Panel,
     Search
   },
-  // async mounted() {
-  //   const songs = await songService.index();
-  //   console.log("songs= ", songs.data);
-  //   this.songs = songs.data;
-  // },
   methods: {
     addClick() {
       this.$router.push({ name: "songs-create" });
@@ -74,13 +68,11 @@ export default {
     "$route.query.search": {
       immediate: true,
       async handler(value) {
-        // const songs = await songService.index(value);
         const songs = await this.$axios.get("/songs", {
           params: {
             search: value
           }
         });
-        // console.log("songs= ", songs.data);
         this.songs = songs.data;
       }
     }

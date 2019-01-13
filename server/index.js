@@ -10,16 +10,10 @@ const { sequelize } = require("./models");
 const app = express();
 const host = process.env.HOST || "127.0.0.1";
 const port = process.env.PORT || 3000;
-/*
-  app.get('/status', (req, res) => {
-    console.log("go status");
-    res.send({message: "hello"})
-  })
-*/
+
 app.use(cors());
 app.use(bodyParser.json());
 require("./config/passport");
-// app.use(morgan("combined"));
 app.set("port", port);
 
 // Import and Set Nuxt.js options
