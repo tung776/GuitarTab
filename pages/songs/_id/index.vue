@@ -69,9 +69,7 @@ export default {
   },
   methods: {
     addClick() {
-      this.$router.push({
-        name: "songs-create"
-      });
+      this.$router.push("/song/create");
     },
     backTolist(id) {
       this.$router.push({

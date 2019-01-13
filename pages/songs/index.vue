@@ -53,7 +53,7 @@ export default {
   // },
   methods: {
     addClick() {
-      this.$router.push({ name: "songs-create" });
+      this.$router.push({ name: "song-create" });
     },
     detail(id) {
       this.$router.push({
