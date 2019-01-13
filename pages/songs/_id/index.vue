@@ -53,6 +53,7 @@
 import Panel from "@/components/Panel";
 import songService from "@/services/songService";
 export default {
+  middleware: "auth",
   data() {
     return {
       song: null
