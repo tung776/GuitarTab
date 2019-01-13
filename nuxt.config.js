@@ -53,10 +53,10 @@ module.exports = {
     plugins: [
         '@/plugins/vuetify',
         //https://www.npmjs.com/package/vuex-persist
-        {
-            src: '~/plugins/vuex-persist',
-            ssr: false
-        }
+        // {
+        //     src: '~/plugins/vuex-persist',
+        //     ssr: false
+        // }
     ],
 
     /*

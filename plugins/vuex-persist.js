@@ -4,6 +4,7 @@ export default ({
     store
 }) => {
     return new VuexPersistence({
-        /* your options */
+        storage: sessionStorage,
+        key: "SERP"
     }).plugin(store);
 }

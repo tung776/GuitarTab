@@ -2,14 +2,14 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
-const _63097233 = () => interopDefault(import('..\\pages\\inspire.vue' /* webpackChunkName: "pages_inspire" */))
-const _025d8b82 = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages_login" */))
-const _023ec61a = () => interopDefault(import('..\\pages\\register.vue' /* webpackChunkName: "pages_register" */))
-const _9aea15ea = () => interopDefault(import('..\\pages\\songs\\index.vue' /* webpackChunkName: "pages_songs_index" */))
-const _72f011da = () => interopDefault(import('..\\pages\\songs\\create.vue' /* webpackChunkName: "pages_songs_create" */))
-const _7aa3c6ef = () => interopDefault(import('..\\pages\\songs\\_id\\index.vue' /* webpackChunkName: "pages_songs__id_index" */))
-const _1a9c427d = () => interopDefault(import('..\\pages\\songs\\_id\\edit.vue' /* webpackChunkName: "pages_songs__id_edit" */))
-const _38b5e86b = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
+const _7f45ad8e = () => interopDefault(import('..\\pages\\inspire.vue' /* webpackChunkName: "pages_inspire" */))
+const _091f4c08 = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages_login" */))
+const _4f61efd4 = () => interopDefault(import('..\\pages\\register.vue' /* webpackChunkName: "pages_register" */))
+const _022eb1c5 = () => interopDefault(import('..\\pages\\songs\\index.vue' /* webpackChunkName: "pages_songs_index" */))
+const _6b5bd199 = () => interopDefault(import('..\\pages\\songs\\create.vue' /* webpackChunkName: "pages_songs_create" */))
+const _f54a2316 = () => interopDefault(import('..\\pages\\songs\\_id\\index.vue' /* webpackChunkName: "pages_songs__id_index" */))
+const _443f1237 = () => interopDefault(import('..\\pages\\songs\\_id\\edit.vue' /* webpackChunkName: "pages_songs__id_edit" */))
+const _3f77a8f1 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
 
 Vue.use(Router)
 
@@ -70,35 +70,35 @@ export function createRouter() {
 
     routes: [{
       path: "/inspire",
-      component: _63097233,
+      component: _7f45ad8e,
       name: "inspire"
     }, {
       path: "/login",
-      component: _025d8b82,
+      component: _091f4c08,
       name: "login"
     }, {
       path: "/register",
-      component: _023ec61a,
+      component: _4f61efd4,
       name: "register"
     }, {
       path: "/songs",
-      component: _9aea15ea,
+      component: _022eb1c5,
       name: "songs"
     }, {
       path: "/songs/create",
-      component: _72f011da,
+      component: _6b5bd199,
       name: "songs-create"
     }, {
       path: "/songs/:id",
-      component: _7aa3c6ef,
+      component: _f54a2316,
       name: "songs-id"
     }, {
       path: "/songs/:id/edit",
-      component: _1a9c427d,
+      component: _443f1237,
       name: "songs-id-edit"
     }, {
       path: "/",
-      component: _38b5e86b,
+      component: _3f77a8f1,
       name: "index"
     }],
 
