@@ -63,13 +63,14 @@ export default {
   },
   async mounted() {
     // console.log("this.$route.params.id = ", this.$route.params.id);
-    const song = await songService.loadSong(this.$route.params.id);
+    // const song = await songService.loadSong(this.$route.params.id);
+    const song = await this.$axios.get(`/song/${this.$route.params.id}`);
     console.log("songs= ", song.data);
     this.song = song.data;
   },
   methods: {
     addClick() {
-      this.$router.push("/song/create");
+      this.$router.push("/songs/create");
     },
     backTolist(id) {
       this.$router.push({

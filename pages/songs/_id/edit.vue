@@ -113,8 +113,9 @@ export default {
   },
 
   async mounted() {
-    console.log(`this.$route.params.id = ${this.$route.params.id}`);
-    const song = await songService.loadSong(this.$route.params.id);
+    // console.log(`this.$route.params.id = ${this.$route.params.id}`);
+    // const song = await songService.loadSong(this.$route.params.id);
+    const song = await this.$axios.get(`/song/${this.$route.params.id}`);
     console.log("songs= ", song.data);
     this.song = song.data;
   },
@@ -132,7 +133,10 @@ export default {
           this.error = "Bạn hãy điền các dữ liệu cần thiết";
           return;
         }
-        const result = await songService.editSong(this.song);
+        const result = await this.$axios.put(
+          `/song/${this.song.id}/edit`,
+          this.song
+        );
         console.log("result = ", result);
         if (!result.data.success) {
           return (this.error = result.data.error);

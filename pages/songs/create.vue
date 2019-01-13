@@ -125,7 +125,7 @@ export default {
           this.error = "Bạn hãy điền các dữ liệu cần thiết";
           return;
         }
-        const result = await songService.createSong(this.song);
+        const result = await this.$axios.post("/createSong", this.song);
         this.$router.push({ name: "songs" });
       } catch (err) {
         console.log("eror: ", err);

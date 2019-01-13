@@ -1,13 +1,13 @@
 import api from "@/services/api";
 
 export default {
-    register(credentials) {
-        return api().post("/register", credentials);
-    },
+  register(credentials) {
+    return this.$axios.post("/register", credentials);
+  },
 
-    login(credentials) {
-        return api().post("/login", credentials);
-    }
+  login(credentials) {
+    return this.$axios.post("/login", credentials);
+  }
 };
 
 /*sử dụng service như sau:

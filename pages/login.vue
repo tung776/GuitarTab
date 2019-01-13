@@ -48,11 +48,13 @@ export default {
     async login() {
       // console.log(this.form);
       try {
-        const respon = await authenService.login(this.form);
-
-        // console.log(`respon.token`, respon.data.token);
-        this.$store.dispatch("authen/setToken", respon.data.token);
-        this.$store.dispatch("authen/setUser", respon.data.user);
+        // const respon = await authenService.login(this.form);
+        console.log("this.form = ", this.form);
+        const { email, password } = this.form;
+        const respon = await this.$auth.loginWith("local", { data: this.form });
+        console.log("respon = ", respon);
+        // this.$store.dispatch("auth/setToken", respon.data.token);
+        // this.$store.dispatch("auth/setUser", respon.data.user);
         this.$router.push("/");
       } catch (err) {
         console.log(err);
